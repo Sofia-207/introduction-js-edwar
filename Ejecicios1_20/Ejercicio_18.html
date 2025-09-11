@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 18 - Número aleatorio impar entre 1 y 99</title>
+</head>
+<body>
+    <h1>Ejercicio 18: Generar un número aleatorio impar entre 1 y 99</h1>
+    <p>Ejecuta el código en la consola del navegador (F12)</p>
+    
+    <script>
+        /*
+        Angie Sofia Guapacha Largo
+        Enunciado del ejercicio: Generar un número aleatorio impar entre 1 y 99
+        */
+        
+        // Función para generar un número aleatorio impar entre 1 y 99
+        function generarNumeroImparAleatorio() {
+            // Generar un número aleatorio entre 1 y 99
+            let numero = Math.floor(Math.random() * 99) + 1;
+            
+            // Si el número es par, sumarle 1 para hacerlo impar
+            if (numero % 2 === 0) {
+                numero += 1;
+            }
+            
+            return numero;
+        }
+        
+        // Función alternativa más eficiente
+        function generarNumeroImparAleatorioV2() {
+            // Generar un número aleatorio entre 0 y 49
+            // Multiplicar por 2 y sumar 1 para obtener números impares entre 1 y 99
+            return Math.floor(Math.random() * 50) * 2 + 1;
+        }
+        
+        // Función para generar múltiples números impares
+        function generarNumerosImpares(cantidad) {
+            const numeros = [];
+            for (let i = 0; i < cantidad; i++) {
+                numeros.push(generarNumeroImparAleatorio());
+            }
+            return numeros;
+        }
+        
+        // Función para verificar si un número es impar
+        function esImpar(numero) {
+            return numero % 2 !== 0;
+        }
+        
+        // Generar números aleatorios impares
+        console.log("=== EJERCICIO 18: NÚMERO ALEATORIO IMPAR ENTRE 1 Y 99 ===");
+        
+        // Generar varios números impares
+        console.log("Números impares generados:");
+        for (let i = 1; i <= 15; i++) {
+            const numero = generarNumeroImparAleatorio();
+            console.log(`Número ${i}: ${numero} (${esImpar(numero) ? 'Impar' : 'Par'})`);
+        }
+        
+        console.log("=====================================================");
+        
+        // Comparación de métodos
+        console.log("\n=== COMPARACIÓN DE MÉTODOS ===");
+        console.log("Método 1 (verificación):");
+        for (let i = 1; i <= 5; i++) {
+            const numero1 = generarNumeroImparAleatorio();
+            console.log(`  ${numero1}`);
+        }
+        
+        console.log("Método 2 (eficiente):");
+        for (let i = 1; i <= 5; i++) {
+            const numero2 = generarNumeroImparAleatorioV2();
+            console.log(`  ${numero2}`);
+        }
+        
+        console.log("===========================");
+        
+        // Generar 20 números impares y verificar
+        console.log("\n=== GENERACIÓN DE 20 NÚMEROS IMPARES ===");
+        const numerosImpares = generarNumerosImpares(20);
+        console.log("Números generados:", numerosImpares);
+        
+        // Verificar que todos son impares
+        const todosImpares = numerosImpares.every(numero => esImpar(numero));
+        console.log(`¿Todos son impares? ${todosImpares ? 'Sí' : 'No'}`);
+        
+        // Contar pares e impares
+        let contadorPares = 0;
+        let contadorImpares = 0;
+        
+        numerosImpares.forEach(numero => {
+            if (esImpar(numero)) {
+                contadorImpares++;
+            } else {
+                contadorPares++;
+            }
+        });
+        
+        console.log(`Pares: ${contadorPares}, Impares: ${contadorImpares}`);
+        
+        console.log("=====================================");
+        
+        // Demostración paso a paso
+        console.log("\n=== DEMOSTRACIÓN PASO A PASO ===");
+        const numeroEjemplo = generarNumeroImparAleatorio();
+        console.log(`Número generado: ${numeroEjemplo}`);
+        console.log(`¿Es impar? ${esImpar(numeroEjemplo) ? 'Sí' : 'No'}`);
+        console.log(`Resto de la división por 2: ${numeroEjemplo % 2}`);
+        
+        console.log("===============================");
+        
+        // Explicación del algoritmo
+        console.log("\n=== EXPLICACIÓN DEL ALGORITMO ===");
+        console.log("Método 1 (verificación):");
+        console.log("1. Generar número aleatorio entre 1 y 99");
+        console.log("2. Verificar si es par (numero % 2 === 0)");
+        console.log("3. Si es par, sumar 1 para hacerlo impar");
+        console.log("");
+        console.log("Método 2 (eficiente):");
+        console.log("1. Generar número aleatorio entre 0 y 49");
+        console.log("2. Multiplicar por 2 (obtiene números pares 0, 2, 4, ..., 98)");
+        console.log("3. Sumar 1 (obtiene números impares 1, 3, 5, ..., 99)");
+        console.log("=================================");
+        
+        // Instrucciones para el usuario
+        console.log("\n💡 Puedes generar números impares escribiendo:");
+        console.log("   generarNumeroImparAleatorio()");
+        console.log("   generarNumeroImparAleatorioV2()");
+        console.log("   generarNumerosImpares(cantidad)");
+        console.log("   Ejemplo: generarNumerosImpares(10)");
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6 - Redondear precio hacia arriba</title>
+</head>
+<body>
+    <h1>Ejercicio 6: Redondear siempre hacia arriba el precio de un producto con decimales</h1>
+    <p>Ejecuta el código en la consola del navegador (F12)</p>
+    
+    <script>
+        /*
+         Angie Sofia Guapacha Largo
+        Enunciado del ejercicio: Redondear siempre hacia arriba el precio de un producto con decimales (usar Math.ceil)
+        */
+        
+        // Función para redondear el precio hacia arriba
+        function redondearPrecioHaciaArriba(precio) {
+            // Math.ceil() redondea hacia arriba al entero más cercano
+            return Math.ceil(precio);
+        }
+        
+        // Ejemplos de precios de productos
+        console.log("=== EJERCICIO 6: REDONDEAR PRECIO HACIA ARRIBA ===");
+        
+        const precios = [
+            { producto: "Café", precio: 2.35 },
+            { producto: "Pan", precio: 1.89 },
+            { producto: "Leche", precio: 3.67 },
+            { producto: "Huevos", precio: 4.12 },
+            { producto: "Arroz", precio: 2.99 },
+            { producto: "Aceite", precio: 5.45 }
+        ];
+        
+        precios.forEach(item => {
+            const precioRedondeado = redondearPrecioHaciaArriba(item.precio);
+            console.log(`${item.producto}: $${item.precio} → $${precioRedondeado}`);
+        });
+        
+        console.log("===============================================");
+        
+        // Ejemplos adicionales con diferentes precios
+        console.log("\n=== EJEMPLOS ADICIONALES ===");
+        const preciosAdicionales = [1.01, 2.50, 3.99, 4.00, 5.99, 10.01];
+        
+        preciosAdicionales.forEach(precio => {
+            const redondeado = redondearPrecioHaciaArriba(precio);
+            console.log(`$${precio} → $${redondeado}`);
+        });
+        
+        console.log("===========================");
+        
+        // Explicación de Math.ceil
+        console.log("\n=== EXPLICACIÓN DE MATH.CEIL ===");
+        console.log("Math.ceil() siempre redondea hacia arriba:");
+        console.log("- 2.1 → 3");
+        console.log("- 2.9 → 3");
+        console.log("- 2.0 → 2");
+        console.log("- -2.1 → -2");
+        console.log("===============================");
+        
+        // Instrucciones para el usuario
+        console.log("\n💡 Puedes redondear precios escribiendo:");
+        console.log("   redondearPrecioHaciaArriba(precio)");
+        console.log("   Ejemplo: redondearPrecioHaciaArriba(3.45)");
+    </script>
+</body>
+</html>

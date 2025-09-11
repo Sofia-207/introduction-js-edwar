@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 14 - Diagonal de un rectángulo</title>
+</head>
+<body>
+    <h1>Ejercicio 14: Calcular la diagonal de un rectángulo dados su base y altura</h1>
+    <p>Ejecuta el código en la consola del navegador (F12)</p>
+    
+    <script>
+        /*
+        Angie Sofia Guapacha Largo
+        Enunciado del ejercicio: Calcular la diagonal de un rectángulo dados su base y altura (usar Math.sqrt y potencias)
+        */
+        
+        // Función para calcular la diagonal de un rectángulo
+        function calcularDiagonalRectangulo(base, altura) {
+            // Teorema de Pitágoras: diagonal² = base² + altura²
+            // diagonal = √(base² + altura²)
+            // Math.pow() para elevar al cuadrado
+            // Math.sqrt() para calcular la raíz cuadrada
+            return Math.sqrt(Math.pow(base, 2) + Math.pow(altura, 2));
+        }
+        
+        // Función alternativa usando el operador **
+        function calcularDiagonalRectanguloV2(base, altura) {
+            // Usando el operador ** para potencias
+            return Math.sqrt(base ** 2 + altura ** 2);
+        }
+        
+        // Ejemplos de cálculo de diagonal
+        console.log("=== EJERCICIO 14: DIAGONAL DE UN RECTÁNGULO ===");
+        
+        // Ejemplos con diferentes rectángulos
+        const rectangulos = [
+            { base: 3, altura: 4, descripcion: "Rectángulo 3x4" },
+            { base: 5, altura: 12, descripcion: "Rectángulo 5x12" },
+            { base: 8, altura: 6, descripcion: "Rectángulo 8x6" },
+            { base: 7, altura: 24, descripcion: "Rectángulo 7x24" },
+            { base: 1, altura: 1, descripcion: "Cuadrado 1x1" },
+            { base: 10, altura: 10, descripcion: "Cuadrado 10x10" }
+        ];
+        
+        rectangulos.forEach(rect => {
+            const diagonal = calcularDiagonalRectangulo(rect.base, rect.altura);
+            const diagonalRedondeada = Math.round(diagonal * 100) / 100;
+            console.log(`${rect.descripcion}: diagonal = ${diagonalRedondeada}`);
+        });
+        
+        console.log("=============================================");
+        
+        // Verificación con triángulos rectángulos conocidos
+        console.log("\n=== VERIFICACIÓN CON TRIÁNGULOS RECTÁNGULOS CONOCIDOS ===");
+        const triangulosConocidos = [
+            { base: 3, altura: 4, diagonal: 5, nombre: "Triángulo 3-4-5" },
+            { base: 5, altura: 12, diagonal: 13, nombre: "Triángulo 5-12-13" },
+            { base: 8, altura: 15, diagonal: 17, nombre: "Triángulo 8-15-17" }
+        ];
+        
+        triangulosConocidos.forEach(triangulo => {
+            const diagonalCalculada = calcularDiagonalRectangulo(triangulo.base, triangulo.altura);
+            const diagonalRedondeada = Math.round(diagonalCalculada);
+            const esCorrecto = diagonalRedondeada === triangulo.diagonal;
+            
+            console.log(`${triangulo.nombre}:`);
+            console.log(`  Calculado: ${diagonalCalculada.toFixed(6)}`);
+            console.log(`  Redondeado: ${diagonalRedondeada}`);
+            console.log(`  Esperado: ${triangulo.diagonal}`);
+            console.log(`  ¿Correcto? ${esCorrecto ? 'Sí' : 'No'}`);
+            console.log("");
+        });
+        
+        console.log("=============================================");
+        
+        // Comparación de métodos
+        console.log("\n=== COMPARACIÓN DE MÉTODOS ===");
+        const base = 6;
+        const altura = 8;
+        
+        const diagonal1 = calcularDiagonalRectangulo(base, altura);
+        const diagonal2 = calcularDiagonalRectanguloV2(base, altura);
+        
+        console.log(`Rectángulo ${base}x${altura}:`);
+        console.log(`Método 1 (Math.pow): ${diagonal1}`);
+        console.log(`Método 2 (operador **): ${diagonal2}`);
+        console.log(`¿Son iguales? ${diagonal1 === diagonal2 ? 'Sí' : 'No'}`);
+        
+        console.log("===========================");
+        
+        // Explicación de la fórmula
+        console.log("\n=== EXPLICACIÓN DE LA FÓRMULA ===");
+        console.log("Teorema de Pitágoras:");
+        console.log("diagonal² = base² + altura²");
+        console.log("diagonal = √(base² + altura²)");
+        console.log("");
+        console.log("En JavaScript:");
+        console.log("Math.sqrt(Math.pow(base, 2) + Math.pow(altura, 2))");
+        console.log("o");
+        console.log("Math.sqrt(base ** 2 + altura ** 2)");
+        console.log("================================");
+        
+        // Instrucciones para el usuario
+        console.log("\n💡 Puedes calcular la diagonal escribiendo:");
+        console.log("   calcularDiagonalRectangulo(base, altura)");
+        console.log("   calcularDiagonalRectanguloV2(base, altura)");
+        console.log("   Ejemplo: calcularDiagonalRectangulo(9, 12)");
+    </script>
+</body>
+</html>

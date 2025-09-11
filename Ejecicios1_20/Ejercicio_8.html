@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8 - Calcular potencia de un número</title>
+</head>
+<body>
+    <h1>Ejercicio 8: Calcular la potencia de un número</h1>
+    <p>Ejecuta el código en la consola del navegador (F12)</p>
+    
+    <script>
+        /*
+        Angie Sofia Guapacha Largo
+        Enunciado del ejercicio: Calcular la potencia de un número (usar Math.pow)
+        */
+        
+        // Función para calcular la potencia de un número
+        function calcularPotencia(base, exponente) {
+            // Math.pow(base, exponente) calcula base elevado a la potencia del exponente
+            return Math.pow(base, exponente);
+        }
+        
+        // Ejemplos de cálculo de potencias
+        console.log("=== EJERCICIO 8: CALCULAR POTENCIA DE UN NÚMERO ===");
+        
+        // Ejemplos básicos
+        const ejemplos = [
+            { base: 2, exponente: 3, descripcion: "2³" },
+            { base: 5, exponente: 2, descripcion: "5²" },
+            { base: 3, exponente: 4, descripcion: "3⁴" },
+            { base: 10, exponente: 3, descripcion: "10³" },
+            { base: 4, exponente: 0.5, descripcion: "4^0.5 (raíz cuadrada)" },
+            { base: 2, exponente: -2, descripcion: "2⁻²" }
+        ];
+        
+        ejemplos.forEach(ejemplo => {
+            const resultado = calcularPotencia(ejemplo.base, ejemplo.exponente);
+            console.log(`${ejemplo.descripcion} = ${resultado}`);
+        });
+        
+        console.log("===============================================");
+        
+        // Ejemplos adicionales con diferentes bases y exponentes
+        console.log("\n=== EJEMPLOS ADICIONALES ===");
+        const potenciasAdicionales = [
+            [7, 2],   // 7²
+            [2, 8],   // 2⁸
+            [3, 3],   // 3³
+            [6, 2],   // 6²
+            [1, 100], // 1¹⁰⁰
+            [0, 5]    // 0⁵
+        ];
+        
+        potenciasAdicionales.forEach(([base, exp]) => {
+            const resultado = calcularPotencia(base, exp);
+            console.log(`${base}^${exp} = ${resultado}`);
+        });
+        
+        console.log("===========================");
+        
+        // Explicación de Math.pow
+        console.log("\n=== EXPLICACIÓN DE MATH.POW ===");
+        console.log("Math.pow(base, exponente) calcula:");
+        console.log("- base^exponente");
+        console.log("- También funciona con exponentes decimales y negativos");
+        console.log("- Ejemplo: Math.pow(2, 3) = 8");
+        console.log("================================");
+        
+        // Instrucciones para el usuario
+        console.log("\n💡 Puedes calcular potencias escribiendo:");
+        console.log("   calcularPotencia(base, exponente)");
+        console.log("   Ejemplo: calcularPotencia(4, 3)");
+    </script>
+</body>
+</html>

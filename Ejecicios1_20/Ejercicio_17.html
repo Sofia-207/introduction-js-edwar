@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 17 - Área de un triángulo</title>
+</head>
+<body>
+    <h1>Ejercicio 17: Calcular el área de un triángulo dados su base 4 y altura 3</h1>
+    <p>Ejecuta el código en la consola del navegador (F12)</p>
+    
+    <script>
+        /*
+        Angie Sofia Guapacha Largo
+        Enunciado del ejercicio: Calcular el área de un triángulo dados su base 4 y altura 3, y redondear el resultado a 2 decimales
+        */
+        
+        // Función para calcular el área de un triángulo
+        function calcularAreaTriangulo(base, altura) {
+            // Fórmula: A = (base × altura) / 2
+            return (base * altura) / 2;
+        }
+        
+        // Función para redondear a 2 decimales
+        function redondearADosDecimales(numero) {
+            // Math.round() redondea al entero más cercano
+            // Multiplicamos por 100, redondeamos y dividimos por 100
+            return Math.round(numero * 100) / 100;
+        }
+        
+        // Función para calcular el área y redondear a 2 decimales
+        function calcularAreaTrianguloRedondeada(base, altura) {
+            const area = calcularAreaTriangulo(base, altura);
+            return redondearADosDecimales(area);
+        }
+        
+        // Calcular el área del triángulo específico
+        console.log("=== EJERCICIO 17: ÁREA DE UN TRIÁNGULO ===");
+        
+        const base = 4;
+        const altura = 3;
+        const area = calcularAreaTriangulo(base, altura);
+        const areaRedondeada = redondearADosDecimales(area);
+        
+        console.log(`Base del triángulo: ${base}`);
+        console.log(`Altura del triángulo: ${altura}`);
+        console.log(`Área calculada: ${area}`);
+        console.log(`Área redondeada a 2 decimales: ${areaRedondeada}`);
+        
+        console.log("=========================================");
+        
+        // Ejemplos adicionales con diferentes triángulos
+        console.log("\n=== EJEMPLOS ADICIONALES ===");
+        const triangulos = [
+            { base: 5, altura: 8, descripcion: "Triángulo 5x8" },
+            { base: 6, altura: 4, descripcion: "Triángulo 6x4" },
+            { base: 10, altura: 7, descripcion: "Triángulo 10x7" },
+            { base: 3.5, altura: 4.2, descripcion: "Triángulo 3.5x4.2" },
+            { base: 12, altura: 9, descripcion: "Triángulo 12x9" }
+        ];
+        
+        triangulos.forEach(triangulo => {
+            const area = calcularAreaTriangulo(triangulo.base, triangulo.altura);
+            const areaRedondeada = redondearADosDecimales(area);
+            console.log(`${triangulo.descripcion}: ${areaRedondeada}`);
+        });
+        
+        console.log("===========================");
+        
+        // Verificación con triángulos conocidos
+        console.log("\n=== VERIFICACIÓN CON TRIÁNGULOS CONOCIDOS ===");
+        const triangulosConocidos = [
+            { base: 4, altura: 3, areaEsperada: 6, nombre: "Triángulo 4x3" },
+            { base: 6, altura: 8, areaEsperada: 24, nombre: "Triángulo 6x8" },
+            { base: 5, altura: 4, areaEsperada: 10, nombre: "Triángulo 5x4" }
+        ];
+        
+        triangulosConocidos.forEach(triangulo => {
+            const areaCalculada = calcularAreaTriangulo(triangulo.base, triangulo.altura);
+            const areaRedondeada = redondearADosDecimales(areaCalculada);
+            const esCorrecto = areaRedondeada === triangulo.areaEsperada;
+            
+            console.log(`${triangulo.nombre}:`);
+            console.log(`  Calculado: ${areaCalculada}`);
+            console.log(`  Redondeado: ${areaRedondeada}`);
+            console.log(`  Esperado: ${triangulo.areaEsperada}`);
+            console.log(`  ¿Correcto? ${esCorrecto ? 'Sí' : 'No'}`);
+            console.log("");
+        });
+        
+        console.log("=============================================");
+        
+        // Demostración paso a paso
+        console.log("\n=== DEMOSTRACIÓN PASO A PASO ===");
+        console.log(`Paso 1 - Identificar valores: base = ${base}, altura = ${altura}`);
+        console.log(`Paso 2 - Aplicar fórmula: A = (base × altura) / 2`);
+        console.log(`Paso 3 - Calcular: A = (${base} × ${altura}) / 2 = ${base * altura} / 2 = ${area}`);
+        console.log(`Paso 4 - Redondear a 2 decimales: ${areaRedondeada}`);
+        
+        console.log("===============================");
+        
+        // Explicación de la fórmula
+        console.log("\n=== EXPLICACIÓN DE LA FÓRMULA ===");
+        console.log("Fórmula del área de un triángulo:");
+        console.log("A = (base × altura) / 2");
+        console.log("");
+        console.log("Donde:");
+        console.log("- A = Área del triángulo");
+        console.log("- base = Longitud de la base");
+        console.log("- altura = Altura perpendicular a la base");
+        console.log("================================");
+        
+        // Instrucciones para el usuario
+        console.log("\n💡 Puedes calcular el área de triángulos escribiendo:");
+        console.log("   calcularAreaTriangulo(base, altura)");
+        console.log("   calcularAreaTrianguloRedondeada(base, altura)");
+        console.log("   Ejemplo: calcularAreaTriangulo(8, 6)");
+    </script>
+</body>
+</html>

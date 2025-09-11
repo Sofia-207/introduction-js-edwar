@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 20 - Arreglo de 20 números aleatorios</title>
+</head>
+<body>
+    <h1>Ejercicio 20: Generar un arreglo con 20 números aleatorios enteros entre 1 y 100 y calcular el máximo y mínimo</h1>
+    <p>Ejecuta el código en la consola del navegador (F12)</p>
+    
+    <script>
+        /*
+        Angie Sofia Guapacha Largo
+        Enunciado del ejercicio: Generar un arreglo con 20 números aleatorios enteros entre 1 y 100 y calcular el máximo y mínimo
+        */
+        
+        // Función para generar un arreglo de 20 números aleatorios entre 1 y 100
+        function generarArreglo20Numeros() {
+            const arreglo = [];
+            for (let i = 0; i < 20; i++) {
+                // Math.random() genera un número entre 0 y 1
+                // Lo multiplicamos por 100 para obtener un rango de 0 a 99.999...
+                // Math.floor() redondea hacia abajo para obtener 0, 1, 2, ..., 99
+                // Le sumamos 1 para obtener 1, 2, 3, ..., 100
+                const numero = Math.floor(Math.random() * 100) + 1;
+                arreglo.push(numero);
+            }
+            return arreglo;
+        }
+        
+        // Función para calcular el máximo y mínimo de un arreglo
+        function calcularMaximoYMinimo(arreglo) {
+            // Math.max() encuentra el valor máximo
+            // Math.min() encuentra el valor mínimo
+            // Usamos el operador spread (...) para pasar los elementos del arreglo como argumentos
+            const maximo = Math.max(...arreglo);
+            const minimo = Math.min(...arreglo);
+            
+            return { maximo, minimo };
+        }
+        
+        // Función para calcular estadísticas adicionales
+        function calcularEstadisticas(arreglo) {
+            const { maximo, minimo } = calcularMaximoYMinimo(arreglo);
+            const suma = arreglo.reduce((total, numero) => total + numero, 0);
+            const promedio = suma / arreglo.length;
+            const promedioRedondeado = Math.round(promedio * 100) / 100;
+            
+            return { maximo, minimo, suma, promedio: promedioRedondeado };
+        }
+        
+        // Generar arreglo y calcular estadísticas
+        console.log("=== EJERCICIO 20: ARREGLO DE 20 NÚMEROS ALEATORIOS ENTRE 1 Y 100 ===");
+        
+        const numeros = generarArreglo20Numeros();
+        const { maximo, minimo } = calcularMaximoYMinimo(numeros);
+        const estadisticas = calcularEstadisticas(numeros);
+        
+        // Mostrar el arreglo
+        console.log("Arreglo de 20 números:");
+        console.log(numeros);
+        
+        // Mostrar resultados
+        console.log(`\nNúmero máximo: ${maximo}`);
+        console.log(`Número mínimo: ${minimo}`);
+        console.log(`Suma total: ${estadisticas.suma}`);
+        console.log(`Promedio: ${estadisticas.promedio}`);
+        
+        console.log("=============================================================");
+        
+        // Ejemplos adicionales con diferentes arreglos
+        console.log("\n=== EJEMPLOS ADICIONALES ===");
+        
+        for (let i = 1; i <= 3; i++) {
+            const arregloEjemplo = generarArreglo20Numeros();
+            const { maximo: max, minimo: min } = calcularMaximoYMinimo(arregloEjemplo);
+            
+            console.log(`\nArreglo ${i}:`);
+            console.log(arregloEjemplo);
+            console.log(`Máximo: ${max}, Mínimo: ${min}`);
+        }
+        
+        console.log("===========================");
+        
+        // Demostración con arreglo fijo para verificar
+        console.log("\n=== DEMOSTRACIÓN CON ARREGLO FIJO ===");
+        const arregloFijo = [45, 12, 78, 23, 56, 89, 34, 67, 91, 15, 42, 73, 28, 51, 84, 37, 62, 95, 19, 46];
+        const { maximo: maxFijo, minimo: minFijo } = calcularMaximoYMinimo(arregloFijo);
+        
+        console.log("Arreglo fijo:");
+        console.log(arregloFijo);
+        console.log(`Máximo: ${maxFijo}, Mínimo: ${minFijo}`);
+        
+        // Verificar manualmente
+        console.log("Verificación manual:");
+        console.log(`Máximo esperado: ${Math.max(...arregloFijo)}`);
+        console.log(`Mínimo esperado: ${Math.min(...arregloFijo)}`);
+        
+        console.log("=====================================");
+        
+        // Análisis de distribución
+        console.log("\n=== ANÁLISIS DE DISTRIBUCIÓN ===");
+        const arregloAnalisis = generarArreglo20Numeros();
+        const { maximo: maxAnalisis, minimo: minAnalisis } = calcularMaximoYMinimo(arregloAnalisis);
+        
+        // Contar números en diferentes rangos
+        let rango1_25 = 0, rango26_50 = 0, rango51_75 = 0, rango76_100 = 0;
+        
+        arregloAnalisis.forEach(numero => {
+            if (numero >= 1 && numero <= 25) rango1_25++;
+            else if (numero >= 26 && numero <= 50) rango26_50++;
+            else if (numero >= 51 && numero <= 75) rango51_75++;
+            else if (numero >= 76 && numero <= 100) rango76_100++;
+        });
+        
+        console.log("Arreglo para análisis:", arregloAnalisis);
+        console.log(`Rango 1-25: ${rango1_25} números`);
+        console.log(`Rango 26-50: ${rango26_50} números`);
+        console.log(`Rango 51-75: ${rango51_75} números`);
+        console.log(`Rango 76-100: ${rango76_100} números`);
+        console.log(`Máximo: ${maxAnalisis}, Mínimo: ${minAnalisis}`);
+        
+        console.log("===============================");
+        
+        // Explicación del algoritmo
+        console.log("\n=== EXPLICACIÓN DEL ALGORITMO ===");
+        console.log("1. Math.random() genera un número entre 0 y 1");
+        console.log("2. Se multiplica por 100 para obtener un rango de 0 a 99.999...");
+        console.log("3. Math.floor() redondea hacia abajo para obtener enteros 0-99");
+        console.log("4. Se suma 1 para obtener enteros 1-100");
+        console.log("5. Math.max(...arreglo) encuentra el valor máximo");
+        console.log("6. Math.min(...arreglo) encuentra el valor mínimo");
+        console.log("=================================");
+        
+        // Instrucciones para el usuario
+        console.log("\n💡 Puedes generar nuevos arreglos y calcular estadísticas escribiendo:");
+        console.log("   const nuevoArreglo = generarArreglo20Numeros();");
+        console.log("   const { maximo, minimo } = calcularMaximoYMinimo(nuevoArreglo);");
+        console.log("   const estadisticas = calcularEstadisticas(nuevoArreglo);");
+    </script>
+</body>
+</html>

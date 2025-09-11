@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 19 - Verificar si un número es potencia de 2</title>
+</head>
+<body>
+    <h1>Ejercicio 19: Determinar si un número es potencia de 2 usando logaritmos</h1>
+    <p>Ejecuta el código en la consola del navegador (F12)</p>
+    
+    <script>
+        /*
+        Angie Sofia Guapacha Largo
+        Enunciado del ejercicio: Determinar si un número es potencia de 2 usando logaritmos (Math.log2)
+        */
+        
+        // Función para determinar si un número es potencia de 2 usando Math.log2
+        function esPotenciaDe2(numero) {
+            // Un número es potencia de 2 si log2(numero) es un entero
+            // Math.log2() calcula el logaritmo en base 2
+            // Verificamos si el resultado es un entero
+            if (numero <= 0) return false;
+            
+            const log2 = Math.log2(numero);
+            return Number.isInteger(log2);
+        }
+        
+        // Función alternativa usando Math.log
+        function esPotenciaDe2V2(numero) {
+            // Usando la fórmula: log2(x) = log(x) / log(2)
+            if (numero <= 0) return false;
+            
+            const log2 = Math.log(numero) / Math.log(2);
+            return Number.isInteger(log2);
+        }
+        
+        // Función para obtener la potencia de 2
+        function obtenerPotenciaDe2(numero) {
+            if (!esPotenciaDe2(numero)) return null;
+            return Math.log2(numero);
+        }
+        
+        // Función para verificar con método bit a bit (comparación)
+        function esPotenciaDe2Bitwise(numero) {
+            // Un número es potencia de 2 si tiene exactamente un bit en 1
+            // Esto se puede verificar con: numero & (numero - 1) === 0
+            return numero > 0 && (numero & (numero - 1)) === 0;
+        }
+        
+        // Ejemplos de verificación de potencias de 2
+        console.log("=== EJERCICIO 19: VERIFICAR SI UN NÚMERO ES POTENCIA DE 2 ===");
+        
+        // Números que son potencias de 2
+        const potenciasDe2 = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024];
+        
+        console.log("\n=== NÚMEROS QUE SON POTENCIAS DE 2 ===");
+        potenciasDe2.forEach(numero => {
+            const esPotencia = esPotenciaDe2(numero);
+            const potencia = obtenerPotenciaDe2(numero);
+            const esPotenciaBitwise = esPotenciaDe2Bitwise(numero);
+            
+            console.log(`${numero}: ${esPotencia ? 'Sí' : 'No'} (2^${potencia}) - Bitwise: ${esPotenciaBitwise ? 'Sí' : 'No'}`);
+        });
+        
+        console.log("=====================================");
+        
+        // Números que NO son potencias de 2
+        const noPotenciasDe2 = [3, 5, 6, 7, 9, 10, 12, 15, 20, 25, 30, 100];
+        
+        console.log("\n=== NÚMEROS QUE NO SON POTENCIAS DE 2 ===");
+        noPotenciasDe2.forEach(numero => {
+            const esPotencia = esPotenciaDe2(numero);
+            const esPotenciaBitwise = esPotenciaDe2Bitwise(numero);
+            
+            console.log(`${numero}: ${esPotencia ? 'Sí' : 'No'} - Bitwise: ${esPotenciaBitwise ? 'Sí' : 'No'}`);
+        });
+        
+        console.log("=====================================");
+        
+        // Comparación de métodos
+        console.log("\n=== COMPARACIÓN DE MÉTODOS ===");
+        const numerosPrueba = [8, 9, 16, 17, 32, 33, 64, 65];
+        
+        numerosPrueba.forEach(numero => {
+            const metodo1 = esPotenciaDe2(numero);
+            const metodo2 = esPotenciaDe2V2(numero);
+            const metodo3 = esPotenciaDe2Bitwise(numero);
+            
+            console.log(`${numero}:`);
+            console.log(`  Math.log2: ${metodo1 ? 'Sí' : 'No'}`);
+            console.log(`  Math.log: ${metodo2 ? 'Sí' : 'No'}`);
+            console.log(`  Bitwise: ${metodo3 ? 'Sí' : 'No'}`);
+            console.log("");
+        });
+        
+        console.log("===========================");
+        
+        // Demostración paso a paso
+        console.log("\n=== DEMOSTRACIÓN PASO A PASO ===");
+        const numeroEjemplo = 16;
+        console.log(`Número: ${numeroEjemplo}`);
+        console.log(`Paso 1 - Calcular log2(${numeroEjemplo}): ${Math.log2(numeroEjemplo)}`);
+        console.log(`Paso 2 - ¿Es entero? ${Number.isInteger(Math.log2(numeroEjemplo)) ? 'Sí' : 'No'}`);
+        console.log(`Paso 3 - ¿Es potencia de 2? ${esPotenciaDe2(numeroEjemplo) ? 'Sí' : 'No'}`);
+        console.log(`Paso 4 - Potencia: 2^${obtenerPotenciaDe2(numeroEjemplo)}`);
+        
+        console.log("===============================");
+        
+        // Explicación del algoritmo
+        console.log("\n=== EXPLICACIÓN DEL ALGORITMO ===");
+        console.log("Un número es potencia de 2 si:");
+        console.log("1. log2(numero) es un entero");
+        console.log("2. Math.log2() calcula el logaritmo en base 2");
+        console.log("3. Number.isInteger() verifica si el resultado es entero");
+        console.log("");
+        console.log("Ejemplo: 16 = 2^4, entonces log2(16) = 4 (entero)");
+        console.log("Ejemplo: 15 ≠ 2^x, entonces log2(15) = 3.906... (no entero)");
+        console.log("=================================");
+        
+        // Instrucciones para el usuario
+        console.log("\n💡 Puedes verificar potencias de 2 escribiendo:");
+        console.log("   esPotenciaDe2(numero)");
+        console.log("   esPotenciaDe2V2(numero)");
+        console.log("   esPotenciaDe2Bitwise(numero)");
+        console.log("   obtenerPotenciaDe2(numero)");
+        console.log("   Ejemplo: esPotenciaDe2(64)");
+    </script>
+</body>
+</html>

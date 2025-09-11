@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10 - Contraseña numérica aleatoria</title>
+</head>
+<body>
+    <h1>Ejercicio 10: Generar una contraseña numérica aleatoria de 6 dígitos</h1>
+    <p>Ejecuta el código en la consola del navegador (F12)</p>
+    
+    <script>
+        /*
+        Angie Sofia Guapacha Largo
+        Enunciado del ejercicio: Generar una contraseña numérica aleatoria de 6 dígitos
+        */
+        
+        // Función para generar una contraseña numérica aleatoria de 6 dígitos
+        function generarContrasenaNumerica() {
+            let contrasena = "";
+            
+            // Generar 6 dígitos aleatorios
+            for (let i = 0; i < 6; i++) {
+                // Math.random() genera un número entre 0 y 1
+                // Lo multiplicamos por 10 y usamos Math.floor para obtener dígitos 0-9
+                const digito = Math.floor(Math.random() * 10);
+                contrasena += digito.toString();
+            }
+            
+            return contrasena;
+        }
+        
+        // Función alternativa más concisa
+        function generarContrasenaNumericaV2() {
+            // Generar un número aleatorio entre 100000 y 999999
+            return Math.floor(Math.random() * 900000) + 100000;
+        }
+        
+        // Generar contraseñas numéricas
+        console.log("=== EJERCICIO 10: CONTRASEÑA NUMÉRICA ALEATORIA DE 6 DÍGITOS ===");
+        
+        // Generar varias contraseñas para demostrar la funcionalidad
+        console.log("Contraseñas generadas:");
+        for (let i = 1; i <= 10; i++) {
+            const contrasena = generarContrasenaNumerica();
+            console.log(`Contraseña ${i}: ${contrasena}`);
+        }
+        
+        console.log("=============================================================");
+        
+        // Comparar ambos métodos
+        console.log("\n=== COMPARACIÓN DE MÉTODOS ===");
+        console.log("Método 1 (concatenación):");
+        for (let i = 1; i <= 5; i++) {
+            const contrasena1 = generarContrasenaNumerica();
+            console.log(`  ${contrasena1}`);
+        }
+        
+        console.log("Método 2 (rango numérico):");
+        for (let i = 1; i <= 5; i++) {
+            const contrasena2 = generarContrasenaNumericaV2();
+            console.log(`  ${contrasena2}`);
+        }
+        
+        console.log("===========================");
+        
+        // Validar que todas las contraseñas tienen 6 dígitos
+        console.log("\n=== VALIDACIÓN DE LONGITUD ===");
+        const contrasenas = [];
+        for (let i = 0; i < 5; i++) {
+            contrasenas.push(generarContrasenaNumerica());
+        }
+        
+        contrasenas.forEach((contrasena, index) => {
+            const longitud = contrasena.length;
+            const esValida = longitud === 6;
+            console.log(`Contraseña ${index + 1}: ${contrasena} (${longitud} dígitos) - ${esValida ? 'Válida' : 'Inválida'}`);
+        });
+        
+        console.log("=============================");
+        
+        // Explicación del algoritmo
+        console.log("\n=== EXPLICACIÓN DEL ALGORITMO ===");
+        console.log("1. Math.random() genera un número entre 0 y 1");
+        console.log("2. Se multiplica por 10 para obtener un rango de 0 a 9.999...");
+        console.log("3. Math.floor() redondea hacia abajo para obtener dígitos 0-9");
+        console.log("4. Se repite 6 veces y se concatenan los dígitos");
+        console.log("=================================");
+        
+        // Instrucciones para el usuario
+        console.log("\n💡 Puedes generar contraseñas escribiendo:");
+        console.log("   generarContrasenaNumerica()");
+        console.log("   generarContrasenaNumericaV2()");
+    </script>
+</body>
+</html>

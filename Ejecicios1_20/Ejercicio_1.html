@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - Redondear número a 2 decimales</title>
+</head>
+<body>
+    <h1>Ejercicio 1: Redondear un número a 2 decimales usando Math.round</h1>
+    <p>Ejecuta el código en la consola del navegador (F12)</p>
+    
+    <script>
+        /*
+         Angie Sofia Guapacha Largo
+        Enunciado del ejercicio: Redondear un número a 2 decimales usando Math.round. Ejemplo: 3.14159 → 3.14
+        */
+        
+        // Función para redondear un número a 2 decimales usando Math.round
+        function redondearADosDecimales(numero) {
+            // Multiplicamos por 100, redondeamos y dividimos por 100
+            return Math.round(numero * 100) / 100;
+        }
+        
+        // Ejemplo con el número 3.14159
+        const numeroOriginal = 3.14159;
+        const numeroRedondeado = redondearADosDecimales(numeroOriginal);
+        
+        // Mostrar resultados en la consola
+        console.log("=== EJERCICIO 1: REDONDEAR A 2 DECIMALES ===");
+        console.log(`Número original: ${numeroOriginal}`);
+        console.log(`Número redondeado a 2 decimales: ${numeroRedondeado}`);
+        console.log("==========================================");
+        
+        // Ejemplos adicionales para demostrar la funcionalidad
+        console.log("\n=== EJEMPLOS ADICIONALES ===");
+        const ejemplos = [2.456, 7.89123, 0.123456, 9.999];
+        
+        ejemplos.forEach(numero => {
+            const redondeado = redondearADosDecimales(numero);
+            console.log(`${numero} → ${redondeado}`);
+        });
+        
+        console.log("===========================");
+        
+        // Instrucciones para el usuario
+        console.log("\n💡 Puedes probar la función escribiendo: redondearADosDecimales(tuNumero)");
+    </script>
+</body>
+</html>

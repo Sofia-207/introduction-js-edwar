@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 11 - Número mayor y menor en arreglo</title>
+</head>
+<body>
+    <h1>Ejercicio 11: Encontrar el número mayor y menor en un arreglo de 20 números</h1>
+    <p>Ejecuta el código en la consola del navegador (F12)</p>
+    
+    <script>
+        /*
+        Angie Sofia Guapacha Largo
+        Enunciado del ejercicio: Encontrar el número mayor y menor en un arreglo de 20 números (usar Math.max y Math.min)
+        */
+        
+        // Función para generar un arreglo de 20 números aleatorios
+        function generarArreglo20Numeros() {
+            const arreglo = [];
+            for (let i = 0; i < 20; i++) {
+                // Generar números aleatorios entre 1 y 100
+                arreglo.push(Math.floor(Math.random() * 100) + 1);
+            }
+            return arreglo;
+        }
+        
+        // Función para encontrar el mayor y menor número
+        function encontrarMayorYMenor(arreglo) {
+            // Math.max() encuentra el valor máximo
+            // Math.min() encuentra el valor mínimo
+            // Usamos el operador spread (...) para pasar los elementos del arreglo como argumentos
+            const mayor = Math.max(...arreglo);
+            const menor = Math.min(...arreglo);
+            
+            return { mayor, menor };
+        }
+        
+        // Generar arreglo y encontrar mayor y menor
+        console.log("=== EJERCICIO 11: NÚMERO MAYOR Y MENOR EN ARREGLO DE 20 NÚMEROS ===");
+        
+        const numeros = generarArreglo20Numeros();
+        const { mayor, menor } = encontrarMayorYMenor(numeros);
+        
+        // Mostrar el arreglo
+        console.log("Arreglo de 20 números:");
+        console.log(numeros);
+        
+        // Mostrar resultados
+        console.log(`\nNúmero mayor: ${mayor}`);
+        console.log(`Número menor: ${menor}`);
+        console.log("=============================================================");
+        
+        // Ejemplos adicionales con diferentes arreglos
+        console.log("\n=== EJEMPLOS ADICIONALES ===");
+        
+        for (let i = 1; i <= 3; i++) {
+            const arregloEjemplo = generarArreglo20Numeros();
+            const { mayor: max, menor: min } = encontrarMayorYMenor(arregloEjemplo);
+            
+            console.log(`\nArreglo ${i}:`);
+            console.log(arregloEjemplo);
+            console.log(`Mayor: ${max}, Menor: ${min}`);
+        }
+        
+        console.log("===========================");
+        
+        // Demostrar con arreglo fijo para verificar
+        console.log("\n=== DEMOSTRACIÓN CON ARREGLO FIJO ===");
+        const arregloFijo = [45, 12, 78, 23, 56, 89, 34, 67, 91, 15, 42, 73, 28, 51, 84, 37, 62, 95, 19, 46];
+        const { mayor: maxFijo, menor: minFijo } = encontrarMayorYMenor(arregloFijo);
+        
+        console.log("Arreglo fijo:");
+        console.log(arregloFijo);
+        console.log(`Mayor: ${maxFijo}, Menor: ${minFijo}`);
+        console.log("=====================================");
+        
+        // Explicación de Math.max y Math.min
+        console.log("\n=== EXPLICACIÓN DE MATH.MAX Y MATH.MIN ===");
+        console.log("Math.max(...arreglo) encuentra el valor máximo");
+        console.log("Math.min(...arreglo) encuentra el valor mínimo");
+        console.log("El operador spread (...) pasa los elementos del arreglo como argumentos");
+        console.log("Ejemplo: Math.max(1, 5, 3) = 5");
+        console.log("==========================================");
+        
+        // Instrucciones para el usuario
+        console.log("\n💡 Puedes generar nuevos arreglos y encontrar mayor/menor escribiendo:");
+        console.log("   const nuevoArreglo = generarArreglo20Numeros();");
+        console.log("   const { mayor, menor } = encontrarMayorYMenor(nuevoArreglo);");
+    </script>
+</body>
+</html>

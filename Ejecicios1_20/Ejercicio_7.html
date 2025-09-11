@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7 - Redondear páginas hacia abajo</title>
+</head>
+<body>
+    <h1>Ejercicio 7: Redondear siempre hacia abajo el número de páginas cuando se imprime un documento</h1>
+    <p>Ejecuta el código en la consola del navegador (F12)</p>
+    
+    <script>
+        /*
+        Angie Sofia Guapacha Largo
+        Enunciado del ejercicio: Redondear siempre hacia abajo el número de páginas cuando se imprime un documento (usar Math.floor)
+        */
+        
+        // Función para redondear páginas hacia abajo
+        function redondearPaginasHaciaAbajo(paginas) {
+            // Math.floor() redondea hacia abajo al entero más cercano
+            return Math.floor(paginas);
+        }
+        
+        // Ejemplos de documentos con diferentes números de páginas
+        console.log("=== EJERCICIO 7: REDONDEAR PÁGINAS HACIA ABAJO ===");
+        
+        const documentos = [
+            { nombre: "Informe Financiero", paginas: 15.3 },
+            { nombre: "Manual de Usuario", paginas: 42.7 },
+            { nombre: "Propuesta Comercial", paginas: 8.9 },
+            { nombre: "Reporte Mensual", paginas: 23.1 },
+            { nombre: "Contrato Legal", paginas: 12.0 },
+            { nombre: "Presentación Ejecutiva", paginas: 6.8 }
+        ];
+        
+        documentos.forEach(doc => {
+            const paginasRedondeadas = redondearPaginasHaciaAbajo(doc.paginas);
+            console.log(`${doc.nombre}: ${doc.paginas} páginas → ${paginasRedondeadas} páginas`);
+        });
+        
+        console.log("===============================================");
+        
+        // Ejemplos adicionales con diferentes números de páginas
+        console.log("\n=== EJEMPLOS ADICIONALES ===");
+        const paginasAdicionales = [1.1, 2.5, 3.9, 4.0, 5.99, 10.01];
+        
+        paginasAdicionales.forEach(paginas => {
+            const redondeadas = redondearPaginasHaciaAbajo(paginas);
+            console.log(`${paginas} páginas → ${redondeadas} páginas`);
+        });
+        
+        console.log("===========================");
+        
+        // Explicación de Math.floor
+        console.log("\n=== EXPLICACIÓN DE MATH.FLOOR ===");
+        console.log("Math.floor() siempre redondea hacia abajo:");
+        console.log("- 2.1 → 2");
+        console.log("- 2.9 → 2");
+        console.log("- 2.0 → 2");
+        console.log("- -2.1 → -3");
+        console.log("================================");
+        
+        // Instrucciones para el usuario
+        console.log("\n💡 Puedes redondear páginas escribiendo:");
+        console.log("   redondearPaginasHaciaAbajo(paginas)");
+        console.log("   Ejemplo: redondearPaginasHaciaAbajo(15.7)");
+    </script>
+</body>
+</html>

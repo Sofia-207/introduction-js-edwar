@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 15 - Redondear al múltiplo de 10 más cercano</title>
+</head>
+<body>
+    <h1>Ejercicio 15: Redondear un número decimal al múltiplo de 10 más cercano</h1>
+    <p>Ejecuta el código en la consola del navegador (F12)</p>
+    
+    <script>
+        /*
+        Angie Sofia Guapacha Largo
+        Enunciado del ejercicio: Redondear un número decimal al múltiplo de 10 más cercano
+        */
+        
+        // Función para redondear al múltiplo de 10 más cercano
+        function redondearAlMultiploDe10(numero) {
+            // Dividimos por 10, redondeamos al entero más cercano, y multiplicamos por 10
+            return Math.round(numero / 10) * 10;
+        }
+        
+        // Función alternativa más explícita
+        function redondearAlMultiploDe10V2(numero) {
+            // Math.round() redondea al entero más cercano
+            // Dividimos por 10, redondeamos, y multiplicamos por 10
+            const dividido = numero / 10;
+            const redondeado = Math.round(dividido);
+            return redondeado * 10;
+        }
+        
+        // Ejemplos de redondeo al múltiplo de 10 más cercano
+        console.log("=== EJERCICIO 15: REDONDEAR AL MÚLTIPLO DE 10 MÁS CERCANO ===");
+        
+        // Ejemplos con diferentes números
+        const numeros = [
+            23.4,   // → 20
+            27.6,   // → 30
+            15.0,   // → 20
+            25.0,   // → 30
+            12.3,   // → 10
+            18.7,   // → 20
+            35.2,   // → 40
+            45.8,   // → 50
+            5.1,    // → 10
+            5.0,    // → 10
+            0.5,    // → 0
+            -12.3,  // → -10
+            -18.7   // → -20
+        ];
+        
+        numeros.forEach(numero => {
+            const redondeado = redondearAlMultiploDe10(numero);
+            console.log(`${numero} → ${redondeado}`);
+        });
+        
+        console.log("=======================================================");
+        
+        // Ejemplos adicionales con números más grandes
+        console.log("\n=== EJEMPLOS CON NÚMEROS MÁS GRANDES ===");
+        const numerosGrandes = [123.4, 567.8, 999.9, 1000.1, 2345.6, 6789.0];
+        
+        numerosGrandes.forEach(numero => {
+            const redondeado = redondearAlMultiploDe10(numero);
+            console.log(`${numero} → ${redondeado}`);
+        });
+        
+        console.log("=========================================");
+        
+        // Comparación de métodos
+        console.log("\n=== COMPARACIÓN DE MÉTODOS ===");
+        const numerosPrueba = [23.4, 27.6, 15.0, 25.0];
+        
+        numerosPrueba.forEach(numero => {
+            const metodo1 = redondearAlMultiploDe10(numero);
+            const metodo2 = redondearAlMultiploDe10V2(numero);
+            const sonIguales = metodo1 === metodo2;
+            
+            console.log(`${numero}:`);
+            console.log(`  Método 1: ${metodo1}`);
+            console.log(`  Método 2: ${metodo2}`);
+            console.log(`  ¿Son iguales? ${sonIguales ? 'Sí' : 'No'}`);
+            console.log("");
+        });
+        
+        console.log("===========================");
+        
+        // Demostración paso a paso
+        console.log("\n=== DEMOSTRACIÓN PASO A PASO ===");
+        const numeroEjemplo = 23.4;
+        console.log(`Número original: ${numeroEjemplo}`);
+        console.log(`Paso 1 - Dividir por 10: ${numeroEjemplo} / 10 = ${numeroEjemplo / 10}`);
+        console.log(`Paso 2 - Redondear: Math.round(${numeroEjemplo / 10}) = ${Math.round(numeroEjemplo / 10)}`);
+        console.log(`Paso 3 - Multiplicar por 10: ${Math.round(numeroEjemplo / 10)} * 10 = ${Math.round(numeroEjemplo / 10) * 10}`);
+        console.log(`Resultado final: ${redondearAlMultiploDe10(numeroEjemplo)}`);
+        
+        console.log("===============================");
+        
+        // Explicación del algoritmo
+        console.log("\n=== EXPLICACIÓN DEL ALGORITMO ===");
+        console.log("1. Dividimos el número por 10");
+        console.log("2. Usamos Math.round() para redondear al entero más cercano");
+        console.log("3. Multiplicamos por 10 para obtener el múltiplo de 10");
+        console.log("4. Esto redondea al múltiplo de 10 más cercano");
+        console.log("=================================");
+        
+        // Instrucciones para el usuario
+        console.log("\n💡 Puedes redondear al múltiplo de 10 escribiendo:");
+        console.log("   redondearAlMultiploDe10(numero)");
+        console.log("   redondearAlMultiploDe10V2(numero)");
+        console.log("   Ejemplo: redondearAlMultiploDe10(47.3)");
+    </script>
+</body>
+</html>

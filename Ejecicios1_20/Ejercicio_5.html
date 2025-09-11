@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5 - Valor absoluto de la diferencia</title>
+</head>
+<body>
+    <h1>Ejercicio 5: Obtener el valor absoluto de la diferencia entre dos números</h1>
+    <p>Ejecuta el código en la consola del navegador (F12)</p>
+    
+    <script>
+        /*
+         Angie Sofia Guapacha Largo
+        Enunciado del ejercicio: Obtener el valor absoluto de la diferencia entre dos números
+        */
+        
+        // Función para obtener el valor absoluto de la diferencia entre dos números
+        function diferenciaAbsoluta(num1, num2) {
+            // Math.abs() devuelve el valor absoluto de un número
+            return Math.abs(num1 - num2);
+        }
+        
+        // Ejemplos de uso
+        console.log("=== EJERCICIO 5: VALOR ABSOLUTO DE LA DIFERENCIA ===");
+        
+        // Ejemplo 1: números positivos
+        const num1 = 15;
+        const num2 = 8;
+        const diferencia1 = diferenciaAbsoluta(num1, num2);
+        console.log(`Diferencia entre ${num1} y ${num2}: ${diferencia1}`);
+        
+        // Ejemplo 2: números negativos
+        const num3 = -10;
+        const num4 = -3;
+        const diferencia2 = diferenciaAbsoluta(num3, num4);
+        console.log(`Diferencia entre ${num3} y ${num4}: ${diferencia2}`);
+        
+        // Ejemplo 3: número positivo y negativo
+        const num5 = 20;
+        const num6 = -5;
+        const diferencia3 = diferenciaAbsoluta(num5, num6);
+        console.log(`Diferencia entre ${num5} y ${num6}: ${diferencia3}`);
+        
+        console.log("=================================================");
+        
+        // Ejemplos adicionales
+        console.log("\n=== EJEMPLOS ADICIONALES ===");
+        const pares = [
+            [100, 75],
+            [0, 25],
+            [-15, 10],
+            [3.5, 7.2]
+        ];
+        
+        pares.forEach((par, index) => {
+            const [a, b] = par;
+            const resultado = diferenciaAbsoluta(a, b);
+            console.log(`Par ${index + 1}: |${a} - ${b}| = ${resultado}`);
+        });
+        
+        console.log("===========================");
+        
+        // Instrucciones para el usuario
+        console.log("\n💡 Puedes calcular la diferencia absoluta escribiendo:");
+        console.log("   diferenciaAbsoluta(numero1, numero2)");
+        console.log("   Ejemplo: diferenciaAbsoluta(50, 30)");
+    </script>
+</body>
+</html>

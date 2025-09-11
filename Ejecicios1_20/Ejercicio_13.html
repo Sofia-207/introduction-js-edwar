@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 13 - Lanzamiento de moneda</title>
+</head>
+<body>
+    <h1>Ejercicio 13: Simular el lanzamiento de una moneda (cara o sello)</h1>
+    <p>Ejecuta el código en la consola del navegador (F12)</p>
+    
+    <script>
+        /*
+        Angie Sofia Guapacha Largo
+        Enunciado del ejercicio: Simular el lanzamiento de una moneda (cara o sello)
+        */
+        
+        // Función para simular el lanzamiento de una moneda
+        function lanzarMoneda() {
+            // Math.random() genera un número entre 0 y 1
+            // Si es menor que 0.5, es cara; si es mayor o igual, es sello
+            return Math.random() < 0.5 ? "Cara" : "Sello";
+        }
+        
+        // Función alternativa que devuelve boolean
+        function lanzarMonedaBoolean() {
+            // Devuelve true para cara, false para sello
+            return Math.random() < 0.5;
+        }
+        
+        // Función para simular múltiples lanzamientos
+        function simularLanzamientosMoneda(cantidad) {
+            const resultados = [];
+            for (let i = 0; i < cantidad; i++) {
+                resultados.push(lanzarMoneda());
+            }
+            return resultados;
+        }
+        
+        // Función para contar caras y sellos
+        function contarCarasYSellos(resultados) {
+            let caras = 0;
+            let sellos = 0;
+            
+            resultados.forEach(resultado => {
+                if (resultado === "Cara") {
+                    caras++;
+                } else {
+                    sellos++;
+                }
+            });
+            
+            return { caras, sellos };
+        }
+        
+        // Simular lanzamientos de moneda
+        console.log("=== EJERCICIO 13: LANZAMIENTO DE MONEDA (CARA O SELLO) ===");
+        
+        // Lanzamientos individuales
+        console.log("Lanzamientos individuales:");
+        for (let i = 1; i <= 10; i++) {
+            const resultado = lanzarMoneda();
+            console.log(`Lanzamiento ${i}: ${resultado}`);
+        }
+        
+        console.log("=====================================================");
+        
+        // Simular 100 lanzamientos y mostrar estadísticas
+        console.log("\n=== SIMULACIÓN DE 100 LANZAMIENTOS ===");
+        const lanzamientos100 = simularLanzamientosMoneda(100);
+        const { caras, sellos } = contarCarasYSellos(lanzamientos100);
+        
+        console.log(`Caras: ${caras} veces (${(caras/100*100).toFixed(1)}%)`);
+        console.log(`Sellos: ${sellos} veces (${(sellos/100*100).toFixed(1)}%)`);
+        
+        console.log("=====================================");
+        
+        // Simular 20 lanzamientos y mostrar resultados
+        console.log("\n=== SIMULACIÓN DE 20 LANZAMIENTOS ===");
+        const lanzamientos20 = simularLanzamientosMoneda(20);
+        console.log("Resultados:", lanzamientos20);
+        
+        const { caras: caras20, sellos: sellos20 } = contarCarasYSellos(lanzamientos20);
+        console.log(`Caras: ${caras20}, Sellos: ${sellos20}`);
+        
+        console.log("=====================================");
+        
+        // Juego simple: adivinar el resultado
+        console.log("\n=== JUEGO: ADIVINAR CARA O SELLO ===");
+        const resultadoJuego = lanzarMoneda();
+        console.log(`La moneda cayó en: ${resultadoJuego}`);
+        console.log("¿Puedes adivinar qué lado salió?");
+        console.log("================================");
+        
+        // Demostración con función boolean
+        console.log("\n=== DEMOSTRACIÓN CON FUNCIÓN BOOLEAN ===");
+        console.log("Lanzamientos (true = Cara, false = Sello):");
+        for (let i = 1; i <= 5; i++) {
+            const resultado = lanzarMonedaBoolean();
+            console.log(`Lanzamiento ${i}: ${resultado} (${resultado ? 'Cara' : 'Sello'})`);
+        }
+        
+        console.log("=========================================");
+        
+        // Explicación del algoritmo
+        console.log("\n=== EXPLICACIÓN DEL ALGORITMO ===");
+        console.log("1. Math.random() genera un número entre 0 y 1");
+        console.log("2. Si el número es menor que 0.5, es Cara");
+        console.log("3. Si el número es mayor o igual a 0.5, es Sello");
+        console.log("4. Esto da una probabilidad del 50% para cada resultado");
+        console.log("=================================");
+        
+        // Instrucciones para el usuario
+        console.log("\n💡 Puedes lanzar la moneda escribiendo:");
+        console.log("   lanzarMoneda()");
+        console.log("   lanzarMonedaBoolean()");
+        console.log("   simularLanzamientosMoneda(cantidad)");
+        console.log("   Ejemplo: simularLanzamientosMoneda(10)");
+    </script>
+</body>
+</html>

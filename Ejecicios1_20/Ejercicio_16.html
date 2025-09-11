@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 16 - Convertir grados a radianes y viceversa</title>
+</head>
+<body>
+    <h1>Ejercicio 16: Convertir grados a radianes y radianes a grados</h1>
+    <p>Ejecuta el código en la consola del navegador (F12)</p>
+    
+    <script>
+        /*
+        Angie Sofia Guapacha Largo
+        Enunciado del ejercicio: Convertir grados a radianes y radianes a grados
+        */
+        
+        // Función para convertir grados a radianes
+        function gradosARadianes(grados) {
+            // Fórmula: radianes = grados * (π / 180)
+            // Math.PI proporciona el valor de π
+            return grados * (Math.PI / 180);
+        }
+        
+        // Función para convertir radianes a grados
+        function radianesAGrados(radianes) {
+            // Fórmula: grados = radianes * (180 / π)
+            return radianes * (180 / Math.PI);
+        }
+        
+        // Función para convertir grados a radianes usando Math.PI directamente
+        function gradosARadianesV2(grados) {
+            // Usando la constante Math.PI directamente
+            return grados * Math.PI / 180;
+        }
+        
+        // Función para convertir radianes a grados usando Math.PI directamente
+        function radianesAGradosV2(radianes) {
+            // Usando la constante Math.PI directamente
+            return radianes * 180 / Math.PI;
+        }
+        
+        // Ejemplos de conversión
+        console.log("=== EJERCICIO 16: CONVERTIR GRADOS A RADIANES Y VICEVERSA ===");
+        
+        // Conversiones de grados a radianes
+        console.log("\n=== GRADOS A RADIANES ===");
+        const gradosComunes = [0, 30, 45, 60, 90, 120, 135, 150, 180, 270, 360];
+        
+        gradosComunes.forEach(grados => {
+            const radianes = gradosARadianes(grados);
+            const radianesRedondeados = Math.round(radianes * 1000) / 1000;
+            console.log(`${grados}° = ${radianesRedondeados} rad`);
+        });
+        
+        console.log("========================");
+        
+        // Conversiones de radianes a grados
+        console.log("\n=== RADIANES A GRADOS ===");
+        const radianesComunes = [
+            Math.PI / 6,    // 30°
+            Math.PI / 4,    // 45°
+            Math.PI / 3,    // 60°
+            Math.PI / 2,    // 90°
+            Math.PI,        // 180°
+            3 * Math.PI / 2, // 270°
+            2 * Math.PI     // 360°
+        ];
+        
+        radianesComunes.forEach(radianes => {
+            const grados = radianesAGrados(radianes);
+            const gradosRedondeados = Math.round(grados * 100) / 100;
+            console.log(`${radianes.toFixed(4)} rad = ${gradosRedondeados}°`);
+        });
+        
+        console.log("========================");
+        
+        // Verificación: convertir de grados a radianes y de vuelta a grados
+        console.log("\n=== VERIFICACIÓN (IDA Y VUELTA) ===");
+        const gradosPrueba = [30, 45, 60, 90, 180];
+        
+        gradosPrueba.forEach(grados => {
+            const radianes = gradosARadianes(grados);
+            const gradosVuelta = radianesAGrados(radianes);
+            const diferencia = Math.abs(grados - gradosVuelta);
+            
+            console.log(`${grados}° → ${radianes.toFixed(4)} rad → ${gradosVuelta.toFixed(2)}°`);
+            console.log(`Diferencia: ${diferencia.toFixed(6)}°`);
+            console.log("");
+        });
+        
+        console.log("===============================");
+        
+        // Comparación de métodos
+        console.log("\n=== COMPARACIÓN DE MÉTODOS ===");
+        const angulo = 45;
+        
+        const radianes1 = gradosARadianes(angulo);
+        const radianes2 = gradosARadianesV2(angulo);
+        const grados1 = radianesAGrados(radianes1);
+        const grados2 = radianesAGradosV2(radianes1);
+        
+        console.log(`${angulo}° a radianes:`);
+        console.log(`  Método 1: ${radianes1}`);
+        console.log(`  Método 2: ${radianes2}`);
+        console.log(`  ¿Son iguales? ${radianes1 === radianes2 ? 'Sí' : 'No'}`);
+        console.log("");
+        console.log(`${radianes1.toFixed(4)} rad a grados:`);
+        console.log(`  Método 1: ${grados1}`);
+        console.log(`  Método 2: ${grados2}`);
+        console.log(`  ¿Son iguales? ${grados1 === grados2 ? 'Sí' : 'No'}`);
+        
+        console.log("===========================");
+        
+        // Explicación de las fórmulas
+        console.log("\n=== EXPLICACIÓN DE LAS FÓRMULAS ===");
+        console.log("Conversión de grados a radianes:");
+        console.log("radianes = grados × (π / 180)");
+        console.log("");
+        console.log("Conversión de radianes a grados:");
+        console.log("grados = radianes × (180 / π)");
+        console.log("");
+        console.log("Donde π (Math.PI) ≈ 3.14159");
+        console.log("================================");
+        
+        // Instrucciones para el usuario
+        console.log("\n💡 Puedes convertir ángulos escribiendo:");
+        console.log("   gradosARadianes(grados)");
+        console.log("   radianesAGrados(radianes)");
+        console.log("   Ejemplo: gradosARadianes(90)");
+        console.log("   Ejemplo: radianesAGrados(Math.PI)");
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 9 - Raíz cúbica de un número</title>
+</head>
+<body>
+    <h1>Ejercicio 9: Obtener la raíz cúbica de un número</h1>
+    <p>Ejecuta el código en la consola del navegador (F12)</p>
+    
+    <script>
+        /*
+        Angie Sofia Guapacha Largo
+        Enunciado del ejercicio: Obtener la raíz cúbica de un número (usar Math.cbrt)
+        */
+        
+        // Función para obtener la raíz cúbica de un número
+        function obtenerRaizCubica(numero) {
+            // Math.cbrt() calcula la raíz cúbica de un número
+            return Math.cbrt(numero);
+        }
+        
+        // Ejemplos de cálculo de raíz cúbica
+        console.log("=== EJERCICIO 9: RAÍZ CÚBICA DE UN NÚMERO ===");
+        
+        // Ejemplos básicos
+        const ejemplos = [
+            { numero: 8, descripcion: "∛8" },
+            { numero: 27, descripcion: "∛27" },
+            { numero: 64, descripcion: "∛64" },
+            { numero: 125, descripcion: "∛125" },
+            { numero: 1, descripcion: "∛1" },
+            { numero: 0, descripcion: "∛0" },
+            { numero: -8, descripcion: "∛(-8)" },
+            { numero: 10, descripcion: "∛10" }
+        ];
+        
+        ejemplos.forEach(ejemplo => {
+            const resultado = obtenerRaizCubica(ejemplo.numero);
+            console.log(`${ejemplo.descripcion} = ${resultado}`);
+        });
+        
+        console.log("===========================================");
+        
+        // Ejemplos adicionales con diferentes números
+        console.log("\n=== EJEMPLOS ADICIONALES ===");
+        const numerosAdicionales = [216, 343, 512, 1000, 15, 50, -27, -64];
+        
+        numerosAdicionales.forEach(numero => {
+            const raizCubica = obtenerRaizCubica(numero);
+            console.log(`∛${numero} = ${raizCubica}`);
+        });
+        
+        console.log("===========================");
+        
+        // Verificación: elevar al cubo para comprobar
+        console.log("\n=== VERIFICACIÓN (ELEVAR AL CUBO) ===");
+        const numerosVerificacion = [2, 3, 4, 5];
+        
+        numerosVerificacion.forEach(numero => {
+            const raizCubica = obtenerRaizCubica(Math.pow(numero, 3));
+            console.log(`∛${Math.pow(numero, 3)} = ${raizCubica} (debería ser ${numero})`);
+        });
+        
+        console.log("=====================================");
+        
+        // Explicación de Math.cbrt
+        console.log("\n=== EXPLICACIÓN DE MATH.CBRT ===");
+        console.log("Math.cbrt() calcula la raíz cúbica:");
+        console.log("- ∛x = y, donde y³ = x");
+        console.log("- Funciona con números positivos, negativos y cero");
+        console.log("- Ejemplo: Math.cbrt(8) = 2");
+        console.log("================================");
+        
+        // Instrucciones para el usuario
+        console.log("\n💡 Puedes calcular la raíz cúbica escribiendo:");
+        console.log("   obtenerRaizCubica(numero)");
+        console.log("   Ejemplo: obtenerRaizCubica(64)");
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 12 - Lanzamiento de dado de 6 caras</title>
+</head>
+<body>
+    <h1>Ejercicio 12: Simular el lanzamiento de un dado de 6 caras</h1>
+    <p>Ejecuta el código en la consola del navegador (F12)</p>
+    
+    <script>
+        /*
+        Angie Sofia Guapacha Largo
+        Enunciado del ejercicio: Simular el lanzamiento de un dado de 6 caras
+        */
+        
+        // Función para simular el lanzamiento de un dado de 6 caras
+        function lanzarDado() {
+            // Math.random() genera un número entre 0 y 1
+            // Lo multiplicamos por 6 para obtener un rango de 0 a 5.999...
+            // Math.floor() redondea hacia abajo para obtener 0, 1, 2, 3, 4, o 5
+            // Le sumamos 1 para obtener 1, 2, 3, 4, 5, o 6
+            return Math.floor(Math.random() * 6) + 1;
+        }
+        
+        // Función para simular múltiples lanzamientos
+        function simularLanzamientos(cantidad) {
+            const resultados = [];
+            for (let i = 0; i < cantidad; i++) {
+                resultados.push(lanzarDado());
+            }
+            return resultados;
+        }
+        
+        // Función para contar frecuencias
+        function contarFrecuencias(resultados) {
+            const frecuencias = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
+            resultados.forEach(resultado => {
+                frecuencias[resultado]++;
+            });
+            return frecuencias;
+        }
+        
+        // Simular lanzamientos de dado
+        console.log("=== EJERCICIO 12: LANZAMIENTO DE DADO DE 6 CARAS ===");
+        
+        // Lanzamientos individuales
+        console.log("Lanzamientos individuales:");
+        for (let i = 1; i <= 10; i++) {
+            const resultado = lanzarDado();
+            console.log(`Lanzamiento ${i}: ${resultado}`);
+        }
+        
+        console.log("===============================================");
+        
+        // Simular 100 lanzamientos y mostrar estadísticas
+        console.log("\n=== SIMULACIÓN DE 100 LANZAMIENTOS ===");
+        const lanzamientos100 = simularLanzamientos(100);
+        const frecuencias = contarFrecuencias(lanzamientos100);
+        
+        console.log("Frecuencias de cada cara:");
+        for (let cara = 1; cara <= 6; cara++) {
+            const frecuencia = frecuencias[cara];
+            const porcentaje = (frecuencia / 100 * 100).toFixed(1);
+            console.log(`Cara ${cara}: ${frecuencia} veces (${porcentaje}%)`);
+        }
+        
+        console.log("=====================================");
+        
+        // Simular 20 lanzamientos y mostrar resultados
+        console.log("\n=== SIMULACIÓN DE 20 LANZAMIENTOS ===");
+        const lanzamientos20 = simularLanzamientos(20);
+        console.log("Resultados:", lanzamientos20);
+        
+        const frecuencias20 = contarFrecuencias(lanzamientos20);
+        console.log("Frecuencias:");
+        for (let cara = 1; cara <= 6; cara++) {
+            console.log(`Cara ${cara}: ${frecuencias20[cara]} veces`);
+        }
+        
+        console.log("=====================================");
+        
+        // Juego simple: adivinar el resultado
+        console.log("\n=== JUEGO: ADIVINAR EL RESULTADO ===");
+        const resultadoJuego = lanzarDado();
+        console.log(`El dado cayó en: ${resultadoJuego}`);
+        console.log("¿Puedes adivinar qué número salió?");
+        console.log("================================");
+        
+        // Explicación del algoritmo
+        console.log("\n=== EXPLICACIÓN DEL ALGORITMO ===");
+        console.log("1. Math.random() genera un número entre 0 y 1");
+        console.log("2. Se multiplica por 6 para obtener un rango de 0 a 5.999...");
+        console.log("3. Math.floor() redondea hacia abajo para obtener 0, 1, 2, 3, 4, o 5");
+        console.log("4. Se suma 1 para obtener 1, 2, 3, 4, 5, o 6");
+        console.log("=================================");
+        
+        // Instrucciones para el usuario
+        console.log("\n💡 Puedes lanzar el dado escribiendo:");
+        console.log("   lanzarDado()");
+        console.log("   simularLanzamientos(cantidad)");
+        console.log("   Ejemplo: simularLanzamientos(10)");
+    </script>
+</body>
+</html>

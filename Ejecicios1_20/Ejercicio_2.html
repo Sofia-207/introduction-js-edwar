@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - Generar número aleatorio entre 10 y 50</title>
+</head>
+<body>
+    <h1>Ejercicio 2: Generar un número entero aleatorio entre 10 y 50</h1>
+    <p>Ejecuta el código en la consola del navegador (F12)</p>
+    
+    <script>
+        /*
+         Angie Sofia Guapacha Largo
+        Enunciado del ejercicio: Generar un número entero aleatorio entre 10 y 50
+        */
+        
+        // Función para generar un número entero aleatorio entre min y max (ambos incluidos)
+        function generarNumeroAleatorio(min, max) {
+            // Math.random() genera un número entre 0 y 1 (excluyendo 1)
+            // Lo multiplicamos por (max - min + 1) para obtener el rango correcto
+            // Le sumamos min para ajustar el valor mínimo
+            // Math.floor() redondea hacia abajo para obtener un entero
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        
+        // Generar números aleatorios entre 10 y 50
+        console.log("=== EJERCICIO 2: NÚMERO ALEATORIO ENTRE 10 Y 50 ===");
+        
+        // Generar varios números para demostrar la funcionalidad
+        for (let i = 1; i <= 10; i++) {
+            const numeroAleatorio = generarNumeroAleatorio(10, 50);
+            console.log(`Número ${i}: ${numeroAleatorio}`);
+        }
+        
+        console.log("=================================================");
+        
+        // Función específica para el rango 10-50
+        function numeroAleatorio10a50() {
+            return generarNumeroAleatorio(10, 50);
+        }
+        
+        // Ejemplo de uso
+        console.log("\n=== EJEMPLO DE USO ===");
+        const ejemplo = numeroAleatorio10a50();
+        console.log(`Número aleatorio generado: ${ejemplo}`);
+        console.log("======================");
+        
+        // Instrucciones para el usuario
+        console.log("\n💡 Puedes generar números aleatorios escribiendo:");
+        console.log("   - generarNumeroAleatorio(10, 50)");
+        console.log("   - numeroAleatorio10a50()");
+    </script>
+</body>
+</html>
+

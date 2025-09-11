@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4 - Calcular hipotenusa de un triángulo rectángulo</title>
+</head>
+<body>
+    <h1>Ejercicio 4: Calcular la hipotenusa de un triángulo rectángulo dados sus catetos</h1>
+    <p>Ejecuta el código en la consola del navegador (F12)</p>
+    
+    <script>
+        /*
+        Angie Sofia Guapacha Largo
+        Enunciado del ejercicio: Calcular la hipotenusa de un triángulo rectángulo dados sus catetos cateto A=4 cateto B=3 hipotenusa? (usar Math.sqrt)
+        */
+        
+        // Función para calcular la hipotenusa de un triángulo rectángulo
+        function calcularHipotenusa(catetoA, catetoB) {
+            // Teorema de Pitágoras: hipotenusa² = catetoA² + catetoB²
+            // hipotenusa = √(catetoA² + catetoB²)
+            // Math.pow() para elevar al cuadrado
+            // Math.sqrt() para calcular la raíz cuadrada
+            return Math.sqrt(Math.pow(catetoA, 2) + Math.pow(catetoB, 2));
+        }
+        
+        // Función alternativa usando el operador **
+        function calcularHipotenusaV2(catetoA, catetoB) {
+            // Usando el operador ** para potencias
+            return Math.sqrt(catetoA ** 2 + catetoB ** 2);
+        }
+        
+        // Calcular la hipotenusa del triángulo específico
+        const catetoA = 4;
+        const catetoB = 3;
+        const hipotenusa = calcularHipotenusa(catetoA, catetoB);
+        
+        // Mostrar resultados en la consola
+        console.log("=== EJERCICIO 4: HIPOTENUSA DE UN TRIÁNGULO RECTÁNGULO ===");
+        console.log(`Cateto A: ${catetoA}`);
+        console.log(`Cateto B: ${catetoB}`);
+        console.log(`Hipotenusa: ${hipotenusa}`);
+        console.log(`Hipotenusa redondeada a 2 decimales: ${Math.round(hipotenusa * 100) / 100}`);
+        console.log("=======================================================");
+        
+        // Verificación: triángulo 3-4-5 (triángulo rectángulo clásico)
+        console.log("\n=== VERIFICACIÓN: TRIÁNGULO 3-4-5 ===");
+        console.log("Este es un triángulo rectángulo clásico donde:");
+        console.log("3² + 4² = 9 + 16 = 25");
+        console.log("√25 = 5");
+        console.log(`Resultado calculado: ${hipotenusa}`);
+        console.log("¿Es correcto? " + (hipotenusa === 5 ? "¡Sí!" : "No"));
+        
+        console.log("=====================================");
+        
+        // Ejemplos adicionales con diferentes triángulos rectángulos
+        console.log("\n=== EJEMPLOS ADICIONALES ===");
+        const triangulos = [
+            { catetoA: 5, catetoB: 12, descripcion: "Triángulo 5-12-13" },
+            { catetoA: 8, catetoB: 15, descripcion: "Triángulo 8-15-17" },
+            { catetoA: 7, catetoB: 24, descripcion: "Triángulo 7-24-25" },
+            { catetoA: 6, catetoB: 8, descripcion: "Triángulo 6-8-10" },
+            { catetoA: 9, catetoB: 12, descripcion: "Triángulo 9-12-15" }
+        ];
+        
+        triangulos.forEach(triangulo => {
+            const hipotenusaCalculada = calcularHipotenusa(triangulo.catetoA, triangulo.catetoB);
+            const hipotenusaRedondeada = Math.round(hipotenusaCalculada * 100) / 100;
+            console.log(`${triangulo.descripcion}: ${hipotenusaRedondeada}`);
+        });
+        
+        console.log("===========================");
+        
+        // Comparación de métodos
+        console.log("\n=== COMPARACIÓN DE MÉTODOS ===");
+        const cateto1 = 6;
+        const cateto2 = 8;
+        
+        const hipotenusa1 = calcularHipotenusa(cateto1, cateto2);
+        const hipotenusa2 = calcularHipotenusaV2(cateto1, cateto2);
+        
+        console.log(`Triángulo ${cateto1}x${cateto2}:`);
+        console.log(`Método 1 (Math.pow): ${hipotenusa1}`);
+        console.log(`Método 2 (operador **): ${hipotenusa2}`);
+        console.log(`¿Son iguales? ${hipotenusa1 === hipotenusa2 ? 'Sí' : 'No'}`);
+        
+        console.log("===========================");
+        
+        // Demostración paso a paso
+        console.log("\n=== DEMOSTRACIÓN PASO A PASO ===");
+        console.log(`Paso 1 - Identificar catetos: A = ${catetoA}, B = ${catetoB}`);
+        console.log(`Paso 2 - Aplicar teorema de Pitágoras: h² = A² + B²`);
+        console.log(`Paso 3 - Calcular cuadrados: h² = ${catetoA}² + ${catetoB}² = ${catetoA * catetoA} + ${catetoB * catetoB} = ${catetoA * catetoA + catetoB * catetoB}`);
+        console.log(`Paso 4 - Calcular raíz cuadrada: h = √${catetoA * catetoA + catetoB * catetoB} = ${hipotenusa}`);
+        
+        console.log("===============================");
+        
+        // Mostrar la fórmula utilizada
+        console.log("\n=== FÓRMULA UTILIZADA ===");
+        console.log("Teorema de Pitágoras:");
+        console.log("hipotenusa² = catetoA² + catetoB²");
+        console.log("hipotenusa = √(catetoA² + catetoB²)");
+        console.log("");
+        console.log("En JavaScript:");
+        console.log("Math.sqrt(Math.pow(catetoA, 2) + Math.pow(catetoB, 2))");
+        console.log("o");
+        console.log("Math.sqrt(catetoA ** 2 + catetoB ** 2)");
+        console.log("================================");
+        
+        // Instrucciones para el usuario
+        console.log("\n💡 Puedes calcular la hipotenusa escribiendo:");
+        console.log("   calcularHipotenusa(catetoA, catetoB)");
+        console.log("   calcularHipotenusaV2(catetoA, catetoB)");
+        console.log("   Ejemplo: calcularHipotenusa(5, 12)");
+    </script>
+</body>
+</html>
